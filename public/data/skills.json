@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Beginner Guitar Lessons",
+    "short": "30-minute one-on-one guitar sessions",
+    "description": "Learn chords, strumming patterns, and simple songs in a friendly one-on-one session.",
+    "price": 25,
+    "rating": 4.9,
+    "provider": "Alex Johnson",
+    "image": "/assets/guitar.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Intro to JavaScript",
+    "short": "Hands-on JS fundamentals",
+    "description": "Learn the basics of JavaScript: variables, functions, DOM manipulation, and events.",
+    "price": 40,
+    "rating": 4.8,
+    "provider": "Sam Lee",
+    "image": "/assets/js.jpg"
+  },
+  {
+    "id": 3,
+    "title": "UI Design Fundamentals",
+    "short": "Design principles and prototyping",
+    "description": "Understand layout, typography, color, and create a simple prototype using Figma.",
+    "price": 50,
+    "rating": 4.7,
+    "provider": "Priya Singh",
+    "image": "/assets/design.jpg"
+  }
+]
