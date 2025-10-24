@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Link, useNavigate } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
+
 
 export default function Navbar() {
   const { user, logout } = useAuth();
@@ -24,9 +25,23 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="absolute left-1/2 transform -translate-x-1/2">
-          <Link to="/" className="mx-3 text-sm text-white border-b-2 border-transparent hover:border-white active:border-white">Home</Link>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `mx-3 text-sm text-white border-b-2 ${isActive ? 'border-white' : 'border-transparent'} hover:border-white`
+            }
+          >
+            Home
+          </NavLink>
           {user && (
-            <Link to="/profile" className="mx-3 text-sm text-white border-b-2 border-transparent hover:border-white active:border-white">My Profile</Link>
+            <NavLink
+              to="/profile"
+              className={({ isActive }) =>
+                `mx-3 text-sm text-white border-b-2 ${isActive ? 'border-white' : 'border-transparent'} hover:border-white`
+              }
+            >
+              My Profile
+            </NavLink>
           )}
         </div>
 
