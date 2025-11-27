@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, NavLink, useNavigate } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
-
+import { CgProfile } from "react-icons/cg";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
@@ -12,8 +12,8 @@ export default function Navbar() {
     navigate('/');
   };
 
-  const avatarSrc = user?.avatar || 'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp';
-  const displayName = user?.displayName || user?.email || 'Guest';
+  const avatarSrc = user?.photoURL || user?.avatar || user?.providerData?.[0]?.photoURL || <CgProfile />;
+  const displayName = user?.displayName || user?.email;
 
   return (
     <div className="navbar bg-[#0A1931] shadow-sm px-4">
@@ -37,17 +37,6 @@ export default function Navbar() {
               Home
             </NavLink>
           }
-
-          {user && (
-            <NavLink
-              to="/profile"
-              className={({ isActive }) =>
-                `mx-3 text-sm text-white border-b-2 ${isActive ? 'border-white' : 'border-transparent'} hover:border-white`
-              }
-            >
-              My Profile
-            </NavLink>
-          )}
         </div>
 
         <div className="flex gap-2 items-center">
@@ -59,24 +48,16 @@ export default function Navbar() {
           )}
 
           {user && (
-            <div className="dropdown dropdown-end">
-              <div tabIndex={0} role="button" title={displayName} className="btn btn-ghost btn-circle avatar">
+            <div>
+              <Link to="/profile" title={displayName} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
                   <img alt={displayName} src={avatarSrc} />
                 </div>
-              </div>
-              <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
-                <li>
-                  <Link to="/profile">Profile</Link>
-                </li>
-                <li>
-                  <Link to="/update-profile">Settings</Link>
-                </li>
-                <li>
-                  <button onClick={handleLogout} className="w-full text-left">Sign Out</button>
-                </li>
-              </ul>
+              </Link>
             </div>
+          )}
+          {user && (
+            <button onClick={handleLogout} className="btn btn-primary btn-sm bg-[#10afff] text-white">Logout</button>
           )}
         </div>
       </div>
