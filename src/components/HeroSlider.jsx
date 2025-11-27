@@ -17,7 +17,7 @@ const images = [
 ];
 
 export default function HeroSlider() {
-  const user = useAuth();
+  const { user } = useAuth();
   return (
     <div className="relative">
       <Swiper

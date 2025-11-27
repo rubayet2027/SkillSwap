@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../context/AuthContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router';
 import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Signup() {
@@ -14,11 +14,13 @@ export default function Signup() {
 
   const { createUser, updateUserProfile, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
   const [passwordErrors, setPasswordErrors] = useState([]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    // validate password with regex and collect specific errors
+
     const errors = [];
     if (!/[A-Z]/.test(password)) errors.push('Password must contain at least one uppercase letter.');
     if (!/[a-z]/.test(password)) errors.push('Password must contain at least one lowercase letter.');
@@ -26,11 +28,9 @@ export default function Signup() {
 
     if (errors.length) {
       setPasswordErrors(errors);
-      // show each error as a toast for clearer feedback
       errors.forEach((err) => toast.error(err));
       return;
     }
-    // clear any previous inline errors
     setPasswordErrors([]);
 
     try {
@@ -38,11 +38,11 @@ export default function Signup() {
       if (updateUserProfile) {
         await updateUserProfile({ displayName: name, photoURL });
       }
-      toast.success('Registered successfully');
-      navigate('/');
+      toast.success('Signed up successfully');
+      navigate(from, { replace: true });
     } catch (error) {
       console.error('Error during sign up:', error);
-      const msg = error?.message || 'Registration failed';
+      const msg = error?.message || 'Sign up failed';
       toast.error(msg);
     }
   };
@@ -50,7 +50,7 @@ export default function Signup() {
     try {
       await googleSignIn();
       toast.success('Signed in with Google');
-      navigate('/');
+      navigate(from, { replace: true });
     } catch (err) {
       console.error('Google sign-in failed', err);
       toast.error(err?.message || 'Google sign-in failed');

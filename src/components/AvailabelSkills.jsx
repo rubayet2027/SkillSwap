@@ -4,12 +4,12 @@ import SkillCard from './SkillCard';
 const AvailabelSkills = ({ skills, loading, error }) => {
     return (
         <section
-            className="skills-list container flex items-center justify-center flex-col pb-20 max-w-screen bg-gradient-to-r from-[#243e71] via-[#8289aa] to-[#285688]"
+            className="skills-list container flex items-center justify-center flex-col pb-20 max-w-screen bg-[#DEECFF]"
             data-aos="fade-up"
             data-aos-duration="800"
         >
             <div
-                className='mt-20 mb-12 text-5xl font-bold text-[#ffffff] [text-shadow:0_2px_8px_rgba(0,0,0,0.6)]'
+                className='mt-20 mb-12 text-5xl font-bold text-[#000000]'
                 data-aos="zoom-in"
                 data-aos-duration="1000"
             >

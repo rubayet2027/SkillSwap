@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function HowItWorks() {
   return (
-    <div className="hero bg-[#DEECFF] py-12">
+    <div className="hero bg-[#DEECFF] py-30">
       <div
         className="hero-content flex-col-reverse lg:flex-row items-center lg:items-start justify-between gap-8 px-6 max-w-7xl mx-auto"
         data-aos="fade-up"

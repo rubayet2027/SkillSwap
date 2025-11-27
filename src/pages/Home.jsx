@@ -42,7 +42,7 @@ export default function Home() {
       <HeroSlider />
       <AvailabelSkills skills={skills} loading={loading} error={error} />
       <HowItWorks />
-      <TopRatedProviders />
+      <TopRatedProviders skills={skills} loading={loading} error={error}/>
     </main>
   );
 }

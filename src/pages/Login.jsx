@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate, useLocation } from 'react-router';
 import useAuth from '../hooks/useAuth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,6 +8,8 @@ import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
 export default function Login() {
   const navigate = useNavigate();
   const { signIn, googleSignIn } = useAuth();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -17,14 +19,14 @@ export default function Login() {
     try {
       if (signIn) {
         await signIn(email, password);
-        toast.success('Logged in successfully');
-        navigate('/');
+        toast.success('Signed in successfully');
+        navigate(from, { replace: true });
       } else {
         console.warn('signIn not available');
       }
     } catch (err) {
-      console.error('Login failed', err);
-      toast.error(err?.message || 'Login failed');
+      console.error('Sign in failed', err);
+      toast.error(err?.message || 'Sign in failed');
     }
   };
 
@@ -33,7 +35,7 @@ export default function Login() {
       if (googleSignIn) {
         await googleSignIn();
         toast.success('Signed in with Google');
-        navigate('/');
+        navigate(from, { replace: true });
       } else {
         console.warn('googleSignIn not available');
       }
