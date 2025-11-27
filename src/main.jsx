@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
-import { AuthProvider } from './context/AuthContext.jsx'
 import PrivateRoute from './utils/PrivateRoute.jsx'
 import Home from './pages/Home.jsx'
 import SkillDetails from './pages/SkillDetails.jsx'
@@ -13,6 +12,7 @@ import Profile from './pages/Profile.jsx'
 import UpdateProfile from './pages/UpdateProfile.jsx'
 import ForgotPassword from './pages/ForgotPassword.jsx'
 import Layout from './layout/Layout.jsx'
+import AuthProvider from './provider/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {

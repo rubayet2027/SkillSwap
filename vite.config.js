@@ -14,6 +14,9 @@ export default defineConfig({
       // Force single React instance (helps prevent Invalid hook call caused by duplicate react copies)
       react: path.resolve(__dirname, 'node_modules/react'),
       'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
+      // Ensure runtime and client entrypoints resolve to the same copy
+      'react/jsx-runtime': path.resolve(__dirname, 'node_modules/react/jsx-runtime'),
+      'react-dom/client': path.resolve(__dirname, 'node_modules/react-dom/client'),
     },
   },
 })

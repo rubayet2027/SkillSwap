@@ -1,6 +1,6 @@
 import React from 'react';
-import { useAuth } from '../context/AuthContext';
 import { Link, NavLink, useNavigate } from 'react-router';
+import useAuth from '../hooks/useAuth';
 
 
 export default function Navbar() {
@@ -24,15 +24,20 @@ export default function Navbar() {
             <span className="text-white font-bold">SkillSwap</span>
           </Link>
         </div>
+        
         <div className="absolute left-1/2 transform -translate-x-1/2">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `mx-3 text-sm text-white border-b-2 ${isActive ? 'border-white' : 'border-transparent'} hover:border-white`
-            }
-          >
-            Home
-          </NavLink>
+          {
+            user &&
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `mx-3 text-sm text-white border-b-2 ${isActive ? 'border-white' : 'border-transparent'} hover:border-white`
+              }
+            >
+              Home
+            </NavLink>
+          }
+
           {user && (
             <NavLink
               to="/profile"
@@ -48,8 +53,8 @@ export default function Navbar() {
         <div className="flex gap-2 items-center">
           {!user && (
             <div className="flex gap-2">
-              <Link to="/login" className="btn btn-sm">Login</Link>
-              <Link to="/signup" className="btn btn-primary btn-sm">Sign up</Link>
+              <Link to="/login" className="btn btn-sm">Sign In</Link>
+              <Link to="/signup" className="btn btn-primary btn-sm bg-[#10afff] text-white">Sign Up</Link>
             </div>
           )}
 
@@ -68,7 +73,7 @@ export default function Navbar() {
                   <Link to="/update-profile">Settings</Link>
                 </li>
                 <li>
-                  <button onClick={handleLogout} className="w-full text-left">Logout</button>
+                  <button onClick={handleLogout} className="w-full text-left">Sign Out</button>
                 </li>
               </ul>
             </div>
