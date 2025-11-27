@@ -24,7 +24,7 @@ export default function SkillCard({ skill }) {
           </div>
         </div>
         <div className="card-actions justify-end mt-auto">
-          <button className="btn bg-[#0f5394] text-white">View Details</button>
+          <Link to={`/skill/${skill.skillId}`} className="btn bg-[#0f5394] text-white">View Details</Link>
         </div>
       </div>
     </div>
