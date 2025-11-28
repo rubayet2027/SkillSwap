@@ -6,13 +6,12 @@ import { CgProfile } from "react-icons/cg";
 export default function Navbar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-
+  const providerPhoto = (user.providerData || []).find(p => p && (p.providerId === 'google.com' || (p.providerId || '').includes('google')))?.photoURL;
+  const photo = user.photoURL || providerPhoto || '';
   const handleLogout = () => {
     logout();
     navigate('/');
   };
-
-  const avatarSrc = user?.photoURL || user?.avatar || user?.providerData?.[0]?.photoURL || <CgProfile />;
   const displayName = user?.displayName || user?.email;
 
   return (
@@ -51,7 +50,7 @@ export default function Navbar() {
             <div>
               <Link to="/profile" title={displayName} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img alt={displayName} src={avatarSrc} />
+                  <img alt={displayName} src={photo} />
                 </div>
               </Link>
             </div>
