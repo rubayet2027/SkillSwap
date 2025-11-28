@@ -6,8 +6,8 @@ import { CgProfile } from "react-icons/cg";
 export default function Navbar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const providerPhoto = (user.providerData || []).find(p => p && (p.providerId === 'google.com' || (p.providerId || '').includes('google')))?.photoURL;
-  const photo = user.photoURL || providerPhoto || '';
+  const providerPhoto = (user?.providerData || []).find(p => p && (p.providerId === 'google.com' || (p.providerId || '').includes('google')))?.photoURL;
+  const photo = user?.photoURL || providerPhoto || '';
   const handleLogout = () => {
     logout();
     navigate('/');
