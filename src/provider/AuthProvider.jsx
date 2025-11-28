@@ -6,6 +6,7 @@ import {
   signOut,
   updateProfile,
   signInWithPopup,
+  sendPasswordResetEmail,
 } from 'firebase/auth';
 import { AuthContext } from '../context/AuthContext';
 import { auth } from '../firebase/firebase.config';
@@ -26,6 +27,10 @@ const AuthProvider = ({ children }) => {
   const signIn = (email, password) =>
     signInWithEmailAndPassword(auth, email, password);
 
+  const forgetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  }
+
   const logout = () => signOut(auth);
 
   const updateUserProfile = (profile) =>
@@ -45,6 +50,7 @@ const AuthProvider = ({ children }) => {
     createUser,
     googleSignIn,
     signIn,
+    forgetPassword,
     logout,
     updateUserProfile,
   };

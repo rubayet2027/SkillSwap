@@ -79,7 +79,7 @@ export default function Login() {
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
               </div>
-              <div><a className="link link-hover">Forgot password?</a></div>
+              <div><Link to="/forgot-password" className="link link-hover">Forgot password?</Link></div>
               <button type="submit" className="btn bg-[#2d9ff1] text-white mt-4">Sign In</button>
               <button type="button" onClick={handleGoogle} className="btn mt-4 bg-[#2d9ff1] text-white"><FaGoogle />Sign in with Google</button>
               <p className='text-sm text-center'>Don't have an account? <Link to="/signup" className="link link-hover font-bold text-[#10afff]" >Sign up here</Link></p>
