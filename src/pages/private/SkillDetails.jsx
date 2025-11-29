@@ -112,13 +112,13 @@ export default function SkillDetails() {
           if (!bookingData.email.trim()) return toast.error('Please enter your email');
           if (!bookingData.datetime) return toast.error('Please choose a date and time');
 
-          const booking = {
-            skillId: id,
-            skillName,
-            providerName,
-            ...bookingData,
-          };
-           console.log('Booking submitted:', booking);
+          // const booking = {
+          //   skillId: id,
+          //   skillName,
+          //   providerName,
+          //   ...bookingData,
+          // };
+           //console.log('Booking submitted:', booking);
           toast.success('Booking confirmed — check your email');
 
           setBookingData({ name: user?.displayName || '', email: user?.email || '', datetime: '', phone: '', notes: '' });

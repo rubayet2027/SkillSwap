@@ -41,7 +41,7 @@ export default function Signup() {
       toast.success('Signed up successfully');
       navigate(from, { replace: true });
     } catch (error) {
-      console.error('Error during sign up:', error);
+      //console.error('Error during sign up:', error);
       const msg = error?.message || 'Sign up failed';
       toast.error(msg);
     }
@@ -52,7 +52,7 @@ export default function Signup() {
       toast.success('Signed in with Google');
       navigate(from, { replace: true });
     } catch (err) {
-      console.error('Google sign-in failed', err);
+      //console.error('Google sign-in failed', err);
       toast.error(err?.message || 'Google sign-in failed');
     }
   };

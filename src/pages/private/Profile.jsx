@@ -1,5 +1,5 @@
 import React from 'react';
-import useAuth from '../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 import { Link } from 'react-router-dom';
 
 export default function Profile() {
@@ -12,7 +12,7 @@ export default function Profile() {
   const providerPhoto = (user.providerData || []).find(p => p && (p.providerId === 'google.com' || (p.providerId || '').includes('google')))?.photoURL;
   const photo = user.photoURL || providerPhoto || '';
  
-  console.log('User Profile:', { displayName, email, photo });
+  //console.log('User Profile:', { displayName, email, photo });
   return (
     <main className="max-w-4xl mx-auto p-6 flex-1">
       <div className="card bg-base-100 shadow-md overflow-hidden">

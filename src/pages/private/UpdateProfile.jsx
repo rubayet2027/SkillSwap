@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import useAuth from '../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -27,7 +27,7 @@ export default function UpdateProfile() {
       toast.success('Profile updated');
       navigate('/profile');
     } catch (err) {
-      console.error('update profile error', err);
+      //console.error('update profile error', err);
       toast.error(err?.message || 'Failed to update profile');
     } finally {
       setSubmitting(false);

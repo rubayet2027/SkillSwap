@@ -29,7 +29,7 @@ export default function Home() {
         if (mounted) setSkills(data);
       })
       .catch(err => {
-        console.error(err);
+        //console.error(err);
         if (mounted) setError(err.message || 'Error');
       })
       .finally(() => {

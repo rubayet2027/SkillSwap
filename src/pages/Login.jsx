@@ -22,10 +22,10 @@ export default function Login() {
         toast.success('Signed in successfully');
         navigate(from, { replace: true });
       } else {
-        console.warn('signIn not available');
+        //console.warn('signIn not available');
       }
     } catch (err) {
-      console.error('Sign in failed', err);
+      //console.error('Sign in failed', err);
       toast.error(err?.message || 'Sign in failed');
     }
   };
@@ -40,7 +40,7 @@ export default function Login() {
         console.warn('googleSignIn not available');
       }
     } catch (err) {
-      console.error('Google sign-in failed', err);
+      //console.error('Google sign-in failed', err);
       toast.error(err?.message || 'Google sign-in failed');
     }
   };
