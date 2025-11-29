@@ -5,6 +5,7 @@ import TopRatedProviders from '../components/TopRatedProviders';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import AvailabelSkills from '../components/AvailabelSkills';
+import Reviews from '../components/Reviews';
 
 
 
@@ -43,6 +44,7 @@ export default function Home() {
       <AvailabelSkills skills={skills} loading={loading} error={error} />
       <HowItWorks />
       <TopRatedProviders skills={skills} loading={loading} error={error}/>
+      <Reviews />
     </main>
   );
 }

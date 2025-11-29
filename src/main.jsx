@@ -11,7 +11,7 @@ import Login from './pages/Login.jsx'
 import Signup from './pages/Signup.jsx'
 import Profile from './pages/Profile.jsx'
 import UpdateProfile from './pages/UpdateProfile.jsx'
-import ForgotPassword from './pages/ForgotPassword.jsx'
+import ForgotPassword from './pages/private/ForgotPassword.jsx'
 import Layout from './layout/Layout.jsx'
 import AuthProvider from './provider/AuthProvider.jsx';
 
